@@ -52,7 +52,7 @@ namespace BinarySearchTree_csharp
             Root = null;
         }
 
-        private Node AddNode(int value, Node rootNode)
+        private Node InsertPrivate(int value, Node rootNode)
         {
             Node node = new Node(value);
             if(rootNode == null)
@@ -63,11 +63,11 @@ namespace BinarySearchTree_csharp
             {
                 if(value < rootNode.Data)
                 {
-                    rootNode.Left = AddNode(value, rootNode.Left);
+                    rootNode.Left = InsertPrivate(value, rootNode.Left);
                 }
                 else
                 {
-                    rootNode.Right = AddNode(value, rootNode.Right);
+                    rootNode.Right = InsertPrivate(value, rootNode.Right);
                 }
             }
             return rootNode;
@@ -75,9 +75,9 @@ namespace BinarySearchTree_csharp
                
         public void Insert(int value)
         {
-            Root = AddNode(value, Root);            
+            Root = InsertPrivate(value, Root);            
         }
-        private Node LookForValue(int value, Node rootNode)
+        private Node LookUpPrivate(int value, Node rootNode)
         {
             if(rootNode.Data == value)
             {
@@ -87,7 +87,7 @@ namespace BinarySearchTree_csharp
             {
                 if(rootNode.Left != null)
                 {
-                    return LookForValue(value, rootNode.Left);
+                    return LookUpPrivate(value, rootNode.Left);
                 }
                 return null;
             }
@@ -95,14 +95,14 @@ namespace BinarySearchTree_csharp
             {
                 if (rootNode.Right != null)
                 {
-                    return LookForValue(value, rootNode.Right);
+                    return LookUpPrivate(value, rootNode.Right);
                 }
                 return null;
             }            
         }
         public Node LookUp(int value)
         {
-            return LookForValue(value, Root);
+            return LookUpPrivate(value, Root);
         }
         private void InOrder(Node rootNode)
         {
@@ -144,7 +144,7 @@ namespace BinarySearchTree_csharp
         {
             PostOrder(Root);
         }
-        private bool BreadFirstSearchHelper(Node rootNode, int n)
+        private bool BreadFirstSearchPrivate(Node rootNode, int n)
         {
             Node node = rootNode;
             Queue<Node> queue = new Queue<Node>();
@@ -169,9 +169,9 @@ namespace BinarySearchTree_csharp
         }
         public bool BreadthFirstSearch(int n)
         {
-            return BreadFirstSearchHelper(Root, n);
+            return BreadFirstSearchPrivate(Root, n);
         }
-        private bool DepthFirstSearchHelper(Node rootNode, int n)
+        private bool DepthFirstSearchPrivate(Node rootNode, int n)
         {
             Node node = rootNode;
             Stack<Node> stack = new Stack<Node>();
@@ -196,7 +196,7 @@ namespace BinarySearchTree_csharp
         }
         public bool DepthFirstSearch(int n)
         {
-            return DepthFirstSearchHelper(Root, n);
+            return DepthFirstSearchPrivate(Root, n);
         }
     }    
 }
