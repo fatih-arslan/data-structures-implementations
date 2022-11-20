@@ -10,8 +10,8 @@ namespace Sorting_algorithms_csharp
     {
         static void Main(string[] args)
         {
-            int[] arr = { 1, 7, 4, 9, 8, 2, 6, 3, 5 };
-            arr[1] = arr[2];
+            int[] arr = { 9,8,7,6,5,4,3,2,1};
+            SelectionSort(arr);            
             Console.WriteLine(String.Join(" ", arr));
             Console.ReadLine();
         }
@@ -42,16 +42,15 @@ namespace Sorting_algorithms_csharp
             int n = arr.Length;
             for (int i = 0; i < n; i++)
             {
-                int minIndex = i; // the index where the min element will be transferred to
-                int indexOfMin = i; // index of the min element
+                int minIndex = i;
                 for (int j = i + 1; j < n; j++)
                 {
-                    if (arr[j] < arr[indexOfMin])
+                    if (arr[j] < arr[minIndex])
                     {
-                        indexOfMin = j;
+                        minIndex = j;
                     }
                 }
-                (arr[minIndex], arr[indexOfMin]) = (arr[indexOfMin], arr[minIndex]);
+                (arr[minIndex], arr[i]) = (arr[i], arr[minIndex]);
             }
         }
        
@@ -71,22 +70,7 @@ namespace Sorting_algorithms_csharp
                     j--;
                 }
             }
-        }
-        static void InsertionSort(List<int> lst)
-        {
-            int n = lst.Count;
-            for(int i = 1; i < n; i++)
-            {
-                int key = lst[i];
-                int j = i - 1;
-                while (lst[j] > key && j >= 0) // going backwards until we find the correct place for key
-                {
-                    j--;
-                }
-                lst.Remove(key);           // removing the key and inserting to the correct place
-                lst.Insert(j + 1, key);
-            }
-        }
+        }        
        
         //Merge Sort 
         //In this algorithm, the array is initially divided into two equal halves and then they are combined in a sorted manner.

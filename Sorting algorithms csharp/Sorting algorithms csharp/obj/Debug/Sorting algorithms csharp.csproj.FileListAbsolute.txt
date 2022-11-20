@@ -6,3 +6,11 @@ C:\Users\fatih\source\repos\Sorting algorithms csharp\Sorting algorithms csharp\
 C:\Users\fatih\source\repos\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.csproj.CoreCompileInputs.cache
 C:\Users\fatih\source\repos\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.exe
 C:\Users\fatih\source\repos\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.pdb
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\bin\Debug\Sorting algorithms csharp.exe.config
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\bin\Debug\Sorting algorithms csharp.exe
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\bin\Debug\Sorting algorithms csharp.pdb
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.csproj.AssemblyReference.cache
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.csproj.CoreCompileInputs.cache
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.exe
+C:\Users\fatih\Desktop\sorting\Sorting algorithms csharp\Sorting algorithms csharp\obj\Debug\Sorting algorithms csharp.pdb
