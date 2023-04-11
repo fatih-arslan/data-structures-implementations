@@ -11,7 +11,7 @@ namespace Sorting_algorithms_csharp
         static void Main(string[] args)
         {
             int[] arr = { 9,8,7,6,5,4,3,2,1};
-            SelectionSort(arr);            
+            QuickSort(arr, 0, arr.Length-1);            
             Console.WriteLine(String.Join(" ", arr));
             Console.ReadLine();
         }
@@ -24,7 +24,7 @@ namespace Sorting_algorithms_csharp
             int n = arr.Length; 
             for(int i = 0; i < n - 1; i++)
             {
-                for(int j = 0; j < n- i - 1; j++)
+                for(int j = 0; j < n - 1 - i; j++)
                 {
                     if(arr[j] > arr[j + 1])
                     {
@@ -40,10 +40,10 @@ namespace Sorting_algorithms_csharp
         static void SelectionSort(int[] arr)
         {
             int n = arr.Length;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n - 1; i++)
             {
                 int minIndex = i;
-                for (int j = i + 1; j < n; j++)
+                for (int j = i + 1; j < n - i; j++)
                 {
                     if (arr[j] < arr[minIndex])
                     {
@@ -57,18 +57,19 @@ namespace Sorting_algorithms_csharp
         //Insertion sort
         //The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
         // Use when the input is small or items are mostly sorted
-        static void InsertionSort(int[] arr)
+        static void InsertionSort(int[] arr) // 9 8 7 6 5 4 3 2 1
         {
             int n = arr.Length;
             for(int i = 1; i < n; i++)
             {
                 int key = arr[i];
                 int j = i - 1;
-                while(arr[j] > key && j >= 0)
+                while(j >= 0 && arr[j] > key)
                 {
-                    (arr[j], arr[j + 1]) = (key, arr[j]);
+                    arr[j+1] = arr[j];
                     j--;
                 }
+                arr[j + 1] = key;
             }
         }        
        
@@ -84,18 +85,16 @@ namespace Sorting_algorithms_csharp
             int mid = length / 2;
             int[] leftArray = new int[mid];
             int[] rightArray = new int[length - mid];
-            int i = 0, j = 0;
-            for(; i < length; i++)
+            
+            for(int i = 0; i < leftArray.Length; i++)
             {
-                if(i < mid)
-                {
-                    leftArray[i] = arr[i];
-                }
-                else
-                {
-                    rightArray[j++] = arr[i];
-                }
+                leftArray[i] = arr[i];
             }
+            for(int i = 0; i < rightArray.Length; i++)
+            {
+                rightArray[i] = arr[mid + i];
+            }
+
             MergeSort(leftArray);
             MergeSort(rightArray);
             Merge(leftArray, rightArray, arr);
@@ -116,14 +115,14 @@ namespace Sorting_algorithms_csharp
                     array[i++] = rightArray[r++];
                 }
             }
-            // There is probably going to be one element remaining that we can't compare to another because there is only one left
+            
             while (l < leftSize)
             {
-                array[i] = leftArray[l++];
+                array[i++] = leftArray[l++];
             }
             while(r < rightSize)
             {
-                array[i] = rightArray[r++];
+                array[i++] = rightArray[r++];
             }
         }
 
