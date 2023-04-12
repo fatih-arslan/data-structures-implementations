@@ -11,9 +11,12 @@ namespace Sorting_algorithms_csharp
         static void Main(string[] args)
         {
             int[] arr = { 9,8,7,6,5,4,3,2,1};
-            QuickSort(arr, 0, arr.Length-1);            
-            Console.WriteLine(String.Join(" ", arr));
-            Console.ReadLine();
+            int[] arr2 = { 3, 6, 1, 2, 5, 4 };
+            QuickSort(arr2, 0 , arr2.Length-1);          
+            QuickSort(arr, 0, arr.Length-1);
+			Console.WriteLine(String.Join(" ", arr2));
+			Console.WriteLine(String.Join(" ", arr));
+			Console.ReadLine();
         }
         
         //Bubble sort
@@ -43,7 +46,7 @@ namespace Sorting_algorithms_csharp
             for (int i = 0; i < n - 1; i++)
             {
                 int minIndex = i;
-                for (int j = i + 1; j < n - i; j++)
+                for (int j = i + 1; j < n; j++)
                 {
                     if (arr[j] < arr[minIndex])
                     {
