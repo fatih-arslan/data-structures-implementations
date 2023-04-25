@@ -24,7 +24,7 @@ namespace BinarySearchTree_csharp
             t.Insert(16);            
             t.Insert(18);
             t.PrintPostOrder();
-            Console.WriteLine(t.DepthFirstSearch(24));
+            Console.WriteLine(t.BreadthFirstSearch(24));
             Console.Read();
         }
     }
@@ -156,13 +156,13 @@ namespace BinarySearchTree_csharp
                 {
                     return true;
                 }
-                if(node.Left != null)
-                {
-                    queue.Enqueue(node.Left);
-                }
                 if(node.Right != null)
                 {
                     queue.Enqueue(node.Right);
+                }
+                if(node.Left != null)
+                {
+                    queue.Enqueue(node.Left);
                 }
             }
             return false;

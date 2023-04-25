@@ -6,3 +6,11 @@ C:\Users\fatih\source\repos\BinarySearchTree csharp\BinarySearchTree csharp\obj\
 C:\Users\fatih\source\repos\BinarySearchTree csharp\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.CoreCompileInputs.cache
 C:\Users\fatih\source\repos\BinarySearchTree csharp\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.exe
 C:\Users\fatih\source\repos\BinarySearchTree csharp\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.pdb
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\bin\Debug\BinarySearchTree csharp.exe.config
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\bin\Debug\BinarySearchTree csharp.exe
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\bin\Debug\BinarySearchTree csharp.pdb
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.AssemblyReference.cache
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.CoreCompileInputs.cache
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.exe
+C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.pdb
