@@ -156,13 +156,13 @@ namespace BinarySearchTree_csharp
                 {
                     return true;
                 }
-                if(node.Right != null)
-                {
-                    queue.Enqueue(node.Right);
-                }
                 if(node.Left != null)
                 {
                     queue.Enqueue(node.Left);
+                }
+                if(node.Right != null)
+                {
+                    queue.Enqueue(node.Right);
                 }
             }
             return false;
@@ -183,13 +183,13 @@ namespace BinarySearchTree_csharp
                 {
                     return true;
                 }
-                if(node.Left != null)
-                {
-                    stack.Push(node.Left);
-                }
                 if(node.Right != null)
                 {
                     stack.Push(node.Right);
+                }
+                if(node.Left != null)
+                {
+                    stack.Push(node.Left);
                 }
             }
             return false;
