@@ -19,8 +19,8 @@ namespace Sorting_algorithms_csharp
 			Console.ReadLine();
         }
         
-        //Bubble sort
-        //Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order.
+        // Bubble sort
+        // Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order.
         // Almost never used, only used for educational purposes
         static void BubbleSort(int[] arr)
         {
@@ -37,8 +37,8 @@ namespace Sorting_algorithms_csharp
             }
         }       
         
-        //Selection sort
-        //The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning
+        // Selection sort
+        // The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning
         // Mostly used as a teaching mechanism
         static void SelectionSort(int[] arr)
         {
@@ -57,8 +57,8 @@ namespace Sorting_algorithms_csharp
             }
         }
        
-        //Insertion sort
-        //The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
+        // Insertion sort
+        // The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
         // Use when the input is small or items are mostly sorted
         static void InsertionSort(int[] arr) // 9 8 7 6 5 4 3 2 1
         {
@@ -76,9 +76,9 @@ namespace Sorting_algorithms_csharp
             }
         }        
        
-        //Merge Sort 
-        //In this algorithm, the array is initially divided into two equal halves and then they are combined in a sorted manner.
-        //We can think of it as a recursive algorithm that continuously splits the array in half until it cannot be further divided.
+        // Merge Sort 
+        // In this algorithm, the array is initially divided into two equal halves and then they are combined in a sorted manner.
+        // We can think of it as a recursive algorithm that continuously splits the array in half until it cannot be further divided.
         // Time complexity is O(nlogn) for best, average and worst cases, use if you are worried about worst case time complexity
         // Space complexity is O(n) if you are worried about space complexity merge sort is really expensive
         static void MergeSort(int[] arr)
@@ -129,13 +129,13 @@ namespace Sorting_algorithms_csharp
             }
         }
 
-        //Quick Sort
+        // Quick Sort
         // Quick sort picks an element as a pivot and partitions the given array around the picked pivot.
-        //The key process in quickSort is a partition().
-        //The target of partitions is, given an array and an element x of an array as the pivot,
-        //put x at its correct position in a sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.
-        //Time complexity is O(nlogn) (same with merge sort) for best and average cases but space complexity O(logn)
-        //So If you don't pick the pivot properly you could have a really slow process
+        // The key process in quickSort is a partition().
+        // The target of partitions is, given an array and an element x of an array as the pivot,
+        // put x at its correct position in a sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.
+        // Time complexity is O(nlogn) (same with merge sort) for best and average cases but space complexity O(logn)
+        // So If you don't pick the pivot properly you could have a really slow process
         static void QuickSort(int[] array, int start, int end)
         {
             if(end <= start) { return; }
