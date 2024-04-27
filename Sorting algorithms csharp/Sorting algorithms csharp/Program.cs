@@ -140,8 +140,8 @@ namespace Sorting_algorithms_csharp
         {
             if(end <= start) { return; }
             int pivot = Partition(array, start, end);   
-            QuickSort(array, start, pivot-1);
-            QuickSort(array, pivot, end);
+            QuickSort(array, start, pivot - 1);
+            QuickSort(array, pivot + 1, end);
         }
         static int Partition(int[] array, int start, int end)
         {
