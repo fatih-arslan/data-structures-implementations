@@ -35,7 +35,7 @@ namespace Stack_csharp
     {
         public Node Top { get; set; }
         public Node Bottom { get; set; }
-        public int Length { get; set; }
+        public int Length { get; private set; }
         public Stack()
         {
             Top = null;
@@ -57,23 +57,32 @@ namespace Stack_csharp
             }            
             Length++;
         }
-        public void Pop()
+        public int Pop()
         {
-            if(Top != null)
+            if (Top == null)
             {
-                Node second = Top.Next;
-                Top.Next = null;
-                Top = second;
-                Length--;
-            }            
+                throw new InvalidOperationException("The stack is empty.");
+            }
+
+            int value = Top.Data;
+            Top = Top.Next;
+            Length--;
+
+            if (Top == null)
+            {
+                Bottom = null;
+            }
+
+            return value;
         }
         public int Peek()
         {
-            if(Top != null)
+            if (Top == null)
             {
-                return Top.Data;
+                throw new InvalidOperationException("The stack is empty.");
             }
-            return 0;
+
+            return Top.Data;
         }
         public void Print()
         {

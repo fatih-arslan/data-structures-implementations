@@ -33,7 +33,7 @@ namespace Queue_csharp
     {
         public  Node First { get; set; }
         public Node Last { get; set; }
-        public int Length { get; set; }
+        public int Length { get; private set; }
         public Queue()
         {
             First = null;
@@ -55,22 +55,31 @@ namespace Queue_csharp
             }
             Length++;
         }
-        public void Dequeue()
+        public int Dequeue()
         {
-            if(First != null)
+            if (First == null)
             {
-                Node second = First.Next;
-                First.Next = null;
-                First = second;
-            }            
+                throw new InvalidOperationException("The queue is empty.");
+            }
+            int value = First.Data;
+            First = First.Next;
+            Length--;
+
+            if (First == null)
+            {
+                Last = null;
+            }
+
+            return value;
         }
         public int Peek()
         {
-            if(First != null)
+            if (First == null)
             {
-                return First.Data;
+                throw new InvalidOperationException("The queue is empty.");
             }
-            return 0;
+
+            return First.Data;
         }
         public void Print()
         {

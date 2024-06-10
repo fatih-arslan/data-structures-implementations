@@ -11,20 +11,21 @@ namespace BinarySearchTree_csharp
         static void Main(string[] args)
         {
             BinarySearchTree t = new BinarySearchTree();
-            t.Insert(15);       
+            t.Insert(15);
             t.Insert(20);
-            t.Insert(10);           
-            t.Insert(17);            
-            t.Insert(12);            
-            t.Insert(22);            
-            t.Insert(8);            
-            t.Insert(13);            
-            t.Insert(24);            
-            t.Insert(6);            
+            t.Insert(10);
+            t.Insert(17);
+            t.Insert(12);
+            t.Insert(22);
+            t.Insert(8);
+            t.Insert(13);
+            t.Insert(24);
+            t.Insert(6);
             t.Insert(16);            
             t.Insert(18);
-            t.PrintPostOrder();
-            Console.WriteLine(t.BreadthFirstSearch(24));
+            t.Insert(9);
+            t.Insert(11);
+            t.Print();            
             Console.Read();
         }
     }
@@ -38,11 +39,7 @@ namespace BinarySearchTree_csharp
             Data = value;
             Right = null;
             Left = null;
-        }
-        public override string ToString()
-        {
-            return Data.ToString();
-        }
+        }        
     }
     class BinarySearchTree
     {
@@ -52,64 +49,71 @@ namespace BinarySearchTree_csharp
             Root = null;
         }
 
-        private Node InsertPrivate(int value, Node rootNode)
+        public void Insert(int value)
         {
-            Node node = new Node(value);
-            if(rootNode == null)
+            if(Root == null)
             {
-                rootNode = node;
+                Root = new Node(value);
             }
             else
             {
-                if(value < rootNode.Data)
+                InsertPrivate(Root, value);
+            }
+        }
+
+        private void InsertPrivate(Node root, int value)
+        {
+            if(value < root.Data)
+            {
+                if(root.Left == null)
                 {
-                    rootNode.Left = InsertPrivate(value, rootNode.Left);
+                    root.Left = new Node(value);
                 }
                 else
                 {
-                    rootNode.Right = InsertPrivate(value, rootNode.Right);
+                    InsertPrivate(root.Left, value);
                 }
-            }
-            return rootNode;
-        }
-               
-        public void Insert(int value)
-        {
-            Root = InsertPrivate(value, Root);            
-        }
-        private Node LookUpPrivate(int value, Node rootNode)
-        {
-            if(rootNode.Data == value)
-            {
-                return rootNode;
-            }
-            else if(value < rootNode.Data)
-            {
-                if(rootNode.Left != null)
-                {
-                    return LookUpPrivate(value, rootNode.Left);
-                }
-                return null;
             }
             else
             {
-                if (rootNode.Right != null)
+                if (root.Right == null)
                 {
-                    return LookUpPrivate(value, rootNode.Right);
+                    root.Right = new Node(value);
                 }
-                return null;
-            }            
+                else
+                {
+                    InsertPrivate(root.Right, value); 
+                }
+            }
         }
-        public Node LookUp(int value)
+
+        public Node Search(int value)
         {
-            return LookUpPrivate(value, Root);
-        }
+            return SearchPrivate(Root, value);
+        }     
+
+        private Node SearchPrivate(Node root, int value)
+        {
+            if(root == null || root.Data == value)
+            {
+                return root;
+            }
+            if(value < Root.Data)
+            {
+                return SearchPrivate(root.Left, value);
+            }
+            else
+            {
+                return SearchPrivate(root.Right, value);
+            }
+        }     
+
         private void InOrder(Node rootNode)
         {
             if (rootNode != null)
             {
                 InOrder(rootNode.Left);
-                Console.WriteLine(rootNode.ToString());                
+                Console.Write(rootNode + " ");                
                 InOrder(rootNode.Right);
             }
         }
@@ -117,7 +121,7 @@ namespace BinarySearchTree_csharp
         {
             if(rootNode != null)
             {
-                Console.WriteLine(rootNode.ToString());
+                Console.Write(rootNode + " ");
                 PreOrder(rootNode.Left);
                 PreOrder(rootNode.Right);
             }
@@ -128,75 +132,104 @@ namespace BinarySearchTree_csharp
             {
                 PostOrder(rootNode.Left);
                 PostOrder(rootNode.Right);
-                Console.WriteLine(rootNode.ToString());
+                Console.Write(rootNode + " ");
             }
         }
 
-        public void PrintPreOrder()
+        public void PreOrderTraversal()
         {
             PreOrder(Root);
         }
-        public void PrintInOrder()
+        public void InOrderTraversal()
         {
             InOrder(Root);
         }
-        public void PrintPostOrder()
+        public void PostOrderTraversal()
         {
             PostOrder(Root);
         }
-        private bool BreadFirstSearchPrivate(Node rootNode, int n)
+
+        public void BreadthFirstSearch()
         {
-            Node node = rootNode;
-            Queue<Node> queue = new Queue<Node>();
-            queue.Enqueue(node);
-            while(queue.Count > 0)
+            if (Root == null)
             {
-                node = queue.Dequeue();
-                if(node.Data == n)
-                {
-                    return true;
-                }
-                if(node.Left != null)
+                return;
+            }
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(Root);
+
+            while (queue.Count != 0)
+            {
+                var node = queue.Dequeue();
+                Console.Write(node.Data + " ");
+
+                if (node.Left != null)
                 {
                     queue.Enqueue(node.Left);
                 }
-                if(node.Right != null)
+                if (node.Right != null)
                 {
                     queue.Enqueue(node.Right);
                 }
             }
-            return false;
         }
-        public bool BreadthFirstSearch(int n)
+
+        public void DepthFirstSearch()
         {
-            return BreadFirstSearchPrivate(Root, n);
-        }
-        private bool DepthFirstSearchPrivate(Node rootNode, int n)
-        {
-            Node node = rootNode;
-            Stack<Node> stack = new Stack<Node>();
-            stack.Push(node);
-            while(stack.Count > 0)
+            if (Root == null)
             {
-                node = stack.Pop();
-                if(node.Data == n)
-                {
-                    return true;
-                }
-                if(node.Right != null)
-                {
-                    stack.Push(node.Right);
-                }
-                if(node.Left != null)
+                return;
+            }
+            Stack<Node> stack = new Stack<Node>();
+            stack.Push(Root);
+
+            while (stack.Count != 0)
+            {
+                var node = stack.Pop();
+                Console.Write(node.Data + " ");
+
+
+                if (node.Left != null)
                 {
                     stack.Push(node.Left);
                 }
-            }
-            return false;
-        }
-        public bool DepthFirstSearch(int n)
+                if (node.Right != null)
+                {
+                    stack.Push(node.Right);
+                }
+            }            
+        }  
+        
+        public void Print()
         {
-            return DepthFirstSearchPrivate(Root, n);
+            if (Root == null)
+            {
+                return;
+            }
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(Root);
+
+            while (queue.Count != 0)
+            {
+                int levelSize = queue.Count;
+                int tabSize = 50 - levelSize;
+                Console.Write(new string(' ', tabSize));
+                for(int i = 0; i < levelSize; i++)
+                {
+                    var node = queue.Dequeue();
+                    Console.Write(node.Data + " ");
+
+                    if (node.Left != null)
+                    {
+                        queue.Enqueue(node.Left);
+                    }
+                    if (node.Right != null)
+                    {
+                        queue.Enqueue(node.Right);
+                    }
+                }
+                Console.WriteLine();
+            }
         }
     }    
 }

@@ -39,7 +39,7 @@ namespace LinkedList__csharp
     {
         public Node Head { get; set; }
         public Node Tail { get; set; }
-        public int Length { get; set; }
+        public int Length { get; private set; }
         public LinkedList()
         {
             Head = null;
@@ -117,50 +117,54 @@ namespace LinkedList__csharp
         }
         public void RemoveAt(int index)
         {
-            if(Head != null)
+            if (Head != null)
             {
-                if(index == 0)
+                if (index == 0)
                 {
-                    Node second = Head.Next;
-                    Head.Next = null;
-                    Head = second;
+                    Head = Head.Next;
                     Length--;
+                    if (Length == 0)
+                    {
+                        Tail = null;
+                    }
                 }
-                else if(index == Length - 1) 
+                else if (index == Length - 1)
                 {
-                    Node secondToLast = GoToNode(index - 1);                    
+                    Node secondToLast = GoToNode(index - 1);
                     secondToLast.Next = null;
                     Tail = secondToLast;
                     Length--;
                 }
-                else if(index > 0 && index < Length - 1)
+                else if (index > 0 && index < Length - 1)
                 {
-                    Node previousNode = GoToNode(index -1);                    
-                    previousNode.Next= previousNode.Next.Next;
+                    Node previousNode = GoToNode(index - 1);
+                    previousNode.Next = previousNode.Next.Next;
                     Length--;
                 }
             }
         }   
+
         public int this[int index]
         {
             get
             {
-                if(index == 0)
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException("Index out of range.");
+                }
+
+                if (index == 0)
                 {
                     return Head.Data;
                 }
-                else if(index == Length - 1)
+                else if (index == Length - 1)
                 {
                     return Tail.Data;
                 }
-                else if(0 < index && index < Length - 1)
+                else
                 {
                     Node node = GoToNode(index);
                     return node.Data;
-                }
-                else
-                {
-                    return 0;
                 }
             }
             set

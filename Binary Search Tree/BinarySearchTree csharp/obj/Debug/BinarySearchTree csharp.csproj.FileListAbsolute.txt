@@ -14,3 +14,10 @@ C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree cshar
 C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.CoreCompileInputs.cache
 C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.exe
 C:\Users\Fatih\Desktop\data structures\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.pdb
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\bin\Debug\BinarySearchTree csharp.exe.config
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\bin\Debug\BinarySearchTree csharp.exe
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\bin\Debug\BinarySearchTree csharp.pdb
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.AssemblyReference.cache
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.csproj.CoreCompileInputs.cache
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.exe
+C:\Users\Fatih\Desktop\New folder\data-structures-implementations\Binary Search Tree\BinarySearchTree csharp\obj\Debug\BinarySearchTree csharp.pdb

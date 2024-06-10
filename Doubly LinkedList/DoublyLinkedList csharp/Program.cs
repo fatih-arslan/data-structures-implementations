@@ -41,7 +41,7 @@ namespace DoublyLinkedList_csharp
     {
         public  Node Head { get; set; }
         public Node Tail { get; set; }
-        public int Length { get; set; }
+        public int Length { get; private set; }
         public DoublyLinkedList()
         {
             Head = null;
@@ -50,13 +50,18 @@ namespace DoublyLinkedList_csharp
         }
         public Node GoToNode(int index)
         {
+            if (index < 0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException("Index out of range.");
+            }
+
             Node traverser;
             int indexCounter;
-            if(index > Length / 2.0) // 0 1 2 3 4 5 6 7 8 9
+            if (index > Length / 2)
             {
                 indexCounter = Length - 1;
                 traverser = Tail;
-                while(indexCounter > index)
+                while (indexCounter > index)
                 {
                     traverser = traverser.Previous;
                     indexCounter--;
@@ -66,7 +71,7 @@ namespace DoublyLinkedList_csharp
             {
                 traverser = Head;
                 indexCounter = 0;
-                while(indexCounter < index)
+                while (indexCounter < index)
                 {
                     traverser = traverser.Next;
                     indexCounter++;
@@ -138,28 +143,39 @@ namespace DoublyLinkedList_csharp
         }
         public void RemoveAt(int index)
         {
-            if(Head != null)
+            if (Head != null)
             {
-                if(index == 0)
+                if (index == 0)
                 {
                     Node second = Head.Next;
+                    if (second != null)
+                    {
+                        second.Previous = null;
+                    }
                     Head.Next = null;
-                    second.Previous = null;
                     Head = second;
                     Length--;
+                    if (Length == 0)
+                    {
+                        Tail = null;
+                    }
                 }
-                else if(index == this.Length - 1)
+                else if (index == this.Length - 1)
                 {
                     Node secondToLast = Tail.Previous;
                     secondToLast.Next = null;
+                    Tail.Previous = null;
                     Tail = secondToLast;
                     Length--;
                 }
-                else if(0 < index && index < this.Length - 1)
+                else if (0 < index && index < this.Length - 1)
                 {
                     Node previousNode = GoToNode(index - 1);
-                    previousNode.Next.Next.Previous = previousNode;
-                    previousNode.Next = previousNode.Next.Next;
+                    Node nodeToRemove = previousNode.Next;
+                    previousNode.Next = nodeToRemove.Next;
+                    nodeToRemove.Next.Previous = previousNode;
+                    nodeToRemove.Next = null;
+                    nodeToRemove.Previous = null;
                     Length--;
                 }
             }
@@ -168,42 +184,26 @@ namespace DoublyLinkedList_csharp
         {
             get
             {
-                if(index == 0)
+                if (index < 0 || index >= Length)
                 {
-                    return Head.Data;
+                    throw new IndexOutOfRangeException("Index out of range.");
                 }
-                else if(index == this.Length - 1)
-                {
-                    return Tail.Data;
-                }
-                else if(0 < index && index <= this.Length - 1)
-                {
-                    Node n = GoToNode(index);
-                    return n.Data;
-                }
-                else
-                {
-                    return 0;
-                }
+
+                Node n = GoToNode(index);
+                return n.Data;
             }
             set
             {
-                if (index == 0)
+                if (index < 0 || index >= Length)
                 {
-                    Head.Data = value;
+                    throw new IndexOutOfRangeException("Index out of range.");
                 }
-                else if (index == this.Length - 1)
-                {
-                    Tail.Data = value;
-                }
-                else if (0 < index && index <= this.Length - 1)
-                {
-                    Node n = GoToNode(index);
-                    n.Data = value;
-                }                
+
+                Node n = GoToNode(index);
+                n.Data = value;
             }
         }
-        public void reverse()
+        public void Reverse()
         {
             if(Length > 1)
             {
